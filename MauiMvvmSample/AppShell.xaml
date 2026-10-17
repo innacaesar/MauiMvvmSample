@@ -3,12 +3,51 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:MauiMvvmSample.Views"
-    x:Class="MauiMvvmSample.AppShell">
+    x:Class="MauiMvvmSample.AppShell"
+    FlyoutBehavior="Disabled">
 
-    <!-- מסך כניסה -->
+    <!-- מסך כניסה: אינו מופיע בתפריט -->
     <ShellContent
         Route="login"
+        Shell.FlyoutItemIsVisible="False"
         ContentTemplate="{DataTemplate views:LoginPage}" />
 
-</Shell>
+    <!-- פריטי התפריט: מוסתרים עד להתחברות -->
+    <FlyoutItem
+        x:Name="HomeItem"
+        Title="Home"
+        Route="home"
+        >
 
+        <ShellContent
+            ContentTemplate="{DataTemplate views:HomePage}" />
+    </FlyoutItem>
+
+    <FlyoutItem
+        x:Name="Page1Item"
+        Title="Page1"
+        Route="page1"
+       >
+
+        <ShellContent
+            ContentTemplate="{DataTemplate views:Page1}" />
+    </FlyoutItem>
+
+    <FlyoutItem
+        x:Name="Page2Item"
+        Title="Page2"
+        Route="page2"
+        >
+
+        <ShellContent
+            ContentTemplate="{DataTemplate views:Page2}" />
+    </FlyoutItem>
+
+    <!-- פעולת סגירה -->
+
+    <MenuItem
+    x:Name="CloseItem"
+    Text="Close"
+    Clicked="OnCloseClicked" />
+
+</Shell>

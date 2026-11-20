@@ -47,10 +47,14 @@ namespace MauiMvvmSample
             builder.Services.AddSingleton<IUserRepository, FirebaseUserRepository>();   
 
             builder.Services.AddSingleton<HttpClient>();
-           
 
+            builder.Services.AddSingleton<IUserSession, UserSession>();
 
+            builder.Services.AddTransient<Page1>();
+            builder.Services.AddTransient<Page1ViewModel>();
 
+            builder.Services.AddTransient<Page2>();
+            builder.Services.AddTransient<Page2ViewModel>();
 
             return builder.Build();
         }

@@ -5,18 +5,31 @@ using MauiMvvmSample.Services;
 
 namespace MauiMvvmSample.ViewModels;
 
-[QueryProperty(nameof(User), "user")]
+//[QueryProperty(nameof(User), "user")] //קישור בין המשתנה User לבין הפרמטר "user" שנשלח מהדף הקודם
 public partial class HomeViewModel : ObservableObject
 {
-    private readonly IAuthService _authService;
+    private readonly IAuthService _authService;// Inject the IAuthService dependency
+    private readonly IUserSession _userSession;// Inject the IUserSession dependency
 
-    public HomeViewModel(IAuthService authService)
+    
+    public User? CurrentUser => _userSession.CurrentUser;
+
+    public HomeViewModel(IAuthService authService, IUserSession userSession)
     {
         _authService = authService;
+        _userSession = userSession;
+
+       
     }
 
-    [ObservableProperty]
-    private User user;
+    
+
+
+
+
+
+
+
 
     //[RelayCommand]
     //private async Task EditEmailAsync()

@@ -4,9 +4,8 @@
              x:Class="MauiMvvmSample.Views.Page1"
              Title="Page1">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label
+    Text="{Binding CurrentUser.Username}"
+    FontSize="24" />
     </VerticalStackLayout>
 </ContentPage>

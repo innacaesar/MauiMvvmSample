@@ -11,7 +11,14 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(
             "register",
             typeof(Views.RegisterPage));
+
+        Routing.RegisterRoute(
+            "home",
+            typeof(Views.HomePage));
     }
+    
+
+    
 
     public void ShowMainMenu()
     {
